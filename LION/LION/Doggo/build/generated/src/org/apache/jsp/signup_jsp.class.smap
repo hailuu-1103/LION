@@ -1,0 +1,30 @@
+SMAP
+signup_jsp.java
+JSP
+*S JSP
+*F
++ 0 signup.jsp
+signup.jsp
++ 1 header.jsp
+footer_header/header.jsp
++ 2 footer.jsp
+footer_header/footer.jsp
+*L
+5,33:60
+5#1,87:93
+37#0,10:179
+46:515,8
+47:523,3
+48:526
+48,9:191
+57:200,3
+58,20:203
+78:223,3
+79,6:226
+85:232,3
+86,6:235
+92:241,3
+93,20:244
+5#2,229:264
+112#0,6:492
+*E

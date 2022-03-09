@@ -1,0 +1,27 @@
+SMAP
+search_jsp.java
+JSP
+*S JSP
+*F
++ 0 search.jsp
+search.jsp
++ 1 header.jsp
+footer_header/header.jsp
++ 2 footer.jsp
+footer_header/footer.jsp
+*L
+5,35:60
+5#1,87:95
+39#0,4:181
+42:445,11
+43,6:456
+49:462,3
+50,6:465
+56,2:471,3
+58,2:477
+60:479,3
+61,5:482
+65,5:187
+5#2,233:192
+69#0,4:424
+*E

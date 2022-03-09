@@ -1,0 +1,18 @@
+SMAP
+catalog_jsp.java
+JSP
+*S JSP
+*F
++ 0 catalog.jsp
+catalog.jsp
++ 1 header.jsp
+footer_header/header.jsp
++ 2 footer.jsp
+footer_header/footer.jsp
+*L
+5,31:50
+5#1,64:81
+35#0,25:144
+5#2,229:169
+59#0,6:397
+*E
