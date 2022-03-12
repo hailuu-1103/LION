@@ -18,7 +18,7 @@ public interface IDAO<T> {
      * @param sql query
      * @return A List contains T
      */
-    List<T> parse(String sql);
+    abstract List<T> parse(String sql);
     
     T get(int id);
     

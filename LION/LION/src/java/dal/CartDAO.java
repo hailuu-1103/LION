@@ -12,7 +12,6 @@ import java.text.DecimalFormat;
 import java.util.List;
 import model.Cart;
 import model.Item;
-import model.Dog;
 import model.Product;
 
 /**
@@ -22,16 +21,6 @@ import model.Product;
 public class CartDAO extends DBContext implements IDAO<Cart> {
 
     DecimalFormat df = new DecimalFormat("#.00");
-
-
-    public static void main(String[] args) {
-//        CartDAO cdb = new CartDAO();
-//        Cart cart = new Cart("asd");
-//        Dog d = new Dog("ALO", "alz", "fmale", 45, "fat", "italy", "image/");
-//        Item t = new Item(d, "fmale", 1, 45);
-//        cart.addItem(t);
-//        cdb.updateCart(cart);
-    }
 
     @Override
     public List<Cart> parse(String sql) {

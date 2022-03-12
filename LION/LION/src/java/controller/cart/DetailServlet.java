@@ -5,7 +5,6 @@
  */
 package controller.cart;
 
-import dal.DogDAO;
 import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
 import model.Cart;
-import model.Dog;
 import model.Product;
 
 /**
@@ -72,7 +70,6 @@ public class DetailServlet extends HttpServlet {
         int id = Integer.valueOf(request.getParameter("product"));
         ProductDAO productDAO = new ProductDAO();
         Product product = productDAO.get(id);
-//        List<String> s = productDAO.getSex(id);
         List<String> sizeList = productDAO.getSize(id);
         List<Integer> numLeft = productDAO.getNumLeft(id);
         if(numLeft.get(0) < 0) {
@@ -85,7 +82,6 @@ public class DetailServlet extends HttpServlet {
         request.setAttribute("size", sizeList);
         request.setAttribute("numLeft", numLeft);
         request.setAttribute("product", product);
-//        request.setAttribute("sex", s);
         request.getRequestDispatcher("detail.jsp").forward(request, response);
         
         

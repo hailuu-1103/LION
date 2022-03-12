@@ -42,10 +42,6 @@
     <body>
 
         <%@include file="footer_header/header.jsp" %>
-        <div style="text-align: center">CHART</div>
-
-        <div class="mx-auto" id="piechart" style="width: 900px; height: 500px;"></div>
-
 
         <div class="table-responsive mx-auto col-10" >
             <h3 style="color: red; margin-bottom: 20px">${requestScope.title}</h3>

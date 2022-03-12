@@ -40,7 +40,16 @@
     <body>
 
         <%@include file="footer_header/header.jsp" %>
-
+        <form action="search" method="post" class="form-inline my-2 my-lg-0">
+            <div class="input-group" style="margin-left: 700px">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <button type="button" class="btn btn-outline-primary">search</button>
+            </div>
+            <a class="btn btn-success btn-sm ml-3" href="chart">
+                <i class="fa fa-shopping-cart"></i> Cart
+                <span class="badge badge-light">3</span>
+            </a>
+        </form>
         <!-- Categories -->
         <div class="Categories">
             <div class="container">
@@ -65,7 +74,7 @@
                 <div id="brand"  class="brand-bg">
                     <h3>New brands</h3>
                     <div class="row">
-                        <c:forEach items = "${requestScope.cheap}" var="ch">
+                        <c:forEach items = "${requestScope.cheap1}" var="ch">
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                                 <div class="brand-box">
                                     <h5>Sale</h5>
@@ -87,40 +96,21 @@
                 <div id="shoes" class="shoes-bg">
                     <h3>New shoes</h3>
                     <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
-                            <div class="shoes-box">
-                                <h5>Sale</h5>
-                                <i><img src="icon/s1.png"/>
-                                </i>
-                                <h4>Price $<span class="nolmal">100</span></h4>
+                        <c:forEach items = "${requestScope.cheap2}" var="ch">
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
+                                <div class="brand-box">
+                                    <h5>Sale</h5>
+                                    <i><img src="<%=request.getContextPath()%>/images/${ch.image}"/>
+                                    </i>
+                                    <h4>Price <span class="nolmal">$${ch.price}</span></h4>
 
+                                </div>
+                                <a class="buynow" href="detail?product=${ch.productID}">Buy now</a>
                             </div>
-                            <a class="buynow" href="#">Buy now</a>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
-                            <div class="shoes-box">
-                                <i><img src="icon/s2.png"/></i>
-                                <h4>Price $<span class="nolmal">100</span></h4>
-                            </div>
-                            <a class="buynow" href="#">Buy now</a>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                            <div class="shoes-box">
-                                <i><img src="icon/s3.png"/></i>
-                                <h4>Price $<span class="nolmal">100</span></h4>
-                            </div>
-                            <a class="buynow" href="#">Buy now</a>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                            <div class="shoes-box">
-                                <i><img src="icon/s4.png"/></i>
-                                <h4>Price $<span class="nolmal">100</span></h4>
-                            </div>
-                            <a class="buynow" href="#">Buy now</a>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
-                <a class="seemore" href="#">See more</a>
+                <a class="seemore" href="catalog?categoryID=2&page=1">See more</a>
             </div>
 
         </div>
@@ -157,43 +147,25 @@
                 <div id="jewellery" class="Jewellery-bg">
                     <h3>New Jewellery</h3>
                     <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
-                            <div class="Jewellery-box">
-                                <h5>Sale</h5>
-                                <i><img src="icon/j1.png"/>
-                                </i>
-                                <h4>Price $<span class="nolmal">200</span></h4>
+                        <c:forEach items = "${requestScope.cheap3}" var="ch">
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
+                                <div class="brand-box">
+                                    <h5>Sale</h5>
+                                    <i><img src="<%=request.getContextPath()%>/images/${ch.image}"/>
+                                    </i>
+                                    <h4>Price <span class="nolmal">$${ch.price}</span></h4>
 
+                                </div>
+                                <a class="buynow" href="detail?product=${ch.productID}">Buy now</a>
                             </div>
-                            <a class="buynow" href="#">Buy now</a>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
-                            <div class="Jewellery-box">
-                                <i><img src="icon/j2.png"/></i>
-                                <h4>Price $<span class="nolmal">100</span></h4>
-                            </div>
-                            <a class="buynow" href="#">Buy now</a>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                            <div class="Jewellery-box">
-                                <i><img src="icon/j3.png"/></i>
-                                <h4>Price $<span class="nolmal">100</span></h4>
-                            </div>
-                            <a class="buynow" href="#">Buy now</a>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                            <div class="Jewellery-box">
-                                <i><img src="icon/j4.png"/></i>
-                                <h4>Price $<span class="nolmal">100</span></h4>
-                            </div>
-                            <a class="buynow" href="#">Buy now</a>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
-                <a class="seemore" href="#">See more</a>
+                <a class="seemore" href="catalog?categoryID=3&page=1">See more</a>
             </div>
         </div>
     </div>
+
     <!-- end news Jewellery -->
 
     <%@include file="footer_header/footer.jsp" %>

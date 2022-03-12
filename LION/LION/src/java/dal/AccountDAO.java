@@ -63,8 +63,16 @@ public class AccountDAO extends dal.DBContext implements IDAO<Account> {
         return out;
     }
 
-    public void updateAccount(String username, String newpass) {
-       
+    public void updatePassword(Account t) {
+        String sql = "UPDATE dbo.account SET password = ? WHERE username = ? ";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, t.getPassword());
+            st.setString(2, t.getUsername());
+            st.executeQuery();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 
     
@@ -108,12 +116,11 @@ public class AccountDAO extends dal.DBContext implements IDAO<Account> {
 
     @Override
     public void update(Account t) {
-         String sql = "UPDATE dbo.account SET password = ?, email = ? WHERE username = ? ";
+         String sql = "UPDATE dbo.account SET email = ? WHERE username = ? ";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, t.getPassword());
-            st.setString(2, t.getEmail());
-            st.setString(3, t.getUsername());
+            st.setString(1, t.getEmail());
+            st.setString(2, t.getUsername());
             st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e);

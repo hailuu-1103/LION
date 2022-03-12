@@ -6,7 +6,6 @@
 package controller.cart;
 
 import dal.CartDAO;
-import dal.DogDAO;
 import dal.ProductDAO;
 import dal.StorageDAO;
 import java.io.IOException;
@@ -20,7 +19,6 @@ import javax.servlet.http.HttpSession;
 import model.Account;
 import model.Cart;
 import model.Item;
-import model.Dog;
 import model.Product;
 
 /**

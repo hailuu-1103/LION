@@ -77,8 +77,22 @@
 
         <div class="main">
             <div class="container-fluid mt-3 mb-5">
-                <h1 class="display-4" style="margin-left: 750px">Áo </h1>
-                
+                <%
+                    int categoryID = Integer.valueOf(request.getParameter("categoryID"));
+                    if (categoryID == 1) {
+                %>
+                <h1 style="margin-left: 850px"> Áo </h1>
+                <%
+                } else if (categoryID == 2) {
+                %>
+                <h1 style="margin-left: 850px"> Giày <h1/>
+                <%} else {
+                %>
+                <h1 style="margin-left: 850px"> Trang sức</h1>
+                <%
+                }
+                %>
+
             </div>
         </div>
         <div id="content" class="col-11 justify-content-center">

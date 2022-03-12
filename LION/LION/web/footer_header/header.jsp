@@ -38,7 +38,6 @@
     <!-- body -->
     <body class="main-layout">
 
-
         <div class="wrapper">
 
             <!-- end loader -->
@@ -53,7 +52,7 @@
                     <ul class="list-unstyled components">
 
                         <li class="active">
-                            <a href="index.html">Home</a>
+                            <a href="home">Home</a>
                         </li>
                         <li>
                             <a href="#brand">Áo</a>
@@ -69,20 +68,7 @@
                 </nav>
             </div>
 
-            <form action="search" method="post" class="form-inline my-2 my-lg-0">
-                <div class="input-group input-group-sm">
-                    <input name="query" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary btn-number">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-                <a class="btn btn-success btn-sm ml-3" href="cart">
-                    <i class="fa fa-shopping-cart"></i> Cart
-                    <span class="badge badge-light">3</span>
-                </a>
-            </form>
+
             <div id="content">
                 <!-- header -->
                 <header>
@@ -97,7 +83,7 @@
                                         <div class="full">
                                             <div class="center-desk">
                                                 <div class="logo">
-                                                    <a href="index.html"><img src="images/logo.png" alt="#"></a>
+                                                    <a href="home"><img src="images/logo.png" alt="#"></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,9 +91,6 @@
                                     <div class="col-lg-9">
                                         <div class="right_header_info">
                                             <ul>
-                                                <li class="menu_iconb">
-                                                    <a href="#"><img style="margin-right: 15px;" src="icon/1.png" alt="#" />7213456789</a>
-                                                </li>
                                                 <%  Account userLogin = (Account) session.getAttribute("account");
                                                     if (userLogin == null) {
                                                 %>
@@ -117,7 +100,7 @@
                                                 <li class="menu_iconb">
                                                     <a href="signup">Signup<img style="margin-left: 15px;" src="icon/6.png" alt="#" /></a>
                                                 </li>
-                                                
+
                                                 <%} else if (userLogin.getRole().equals("user")) {// User login%> 
                                                 <li class="menu_iconb">
                                                     <a href="logout.jsp">Logout <img style="margin-right: 15px;" src="icon/5.png" alt="#" /> </a>
@@ -134,6 +117,9 @@
                                                 </li>
                                                 <li class="menu_iconb">
                                                     <a href="crud">Products<img style="margin-left: 15px;" src="icon/6.png" alt="#" /></a>
+                                                </li>
+                                                <li class="menu_iconb">
+                                                    <a href="morder">Manage<img style="margin-left: 15px;" src="icon/6.png" alt="#" /></a>
                                                 </li>
                                                 <% }%>
                                                 <li class="tytyu">
@@ -230,6 +216,7 @@
                             </div>
                         </section>
                     </div>
+                    
                 </header>
             </div>
     </body>

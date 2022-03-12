@@ -15,39 +15,6 @@ import java.sql.SQLException;
  */
 public class StorageDAO extends DBContext {
 
-    public void putInStorage(String dogID, String sex, int num, String inDate) {
-        String sql = "INSERT INTO dbo.storage VALUES (?,?,?,?)";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, dogID);
-            st.setString(2, sex);
-            st.setInt(3, num);
-            st.setString(4, inDate);
-            st.executeQuery();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
-
-    public void cleanStorage(String dogID) {
-        String sql1 = "DELETE FROM dbo.storage WHERE dogID = ?";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql1);
-            st.setString(1, dogID);
-            st.executeQuery();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-
-        String sql2 = "DELETE FROM dbo.dog WHERE dogID = ?";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql2);
-            st.setString(1, dogID);
-            st.executeQuery();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
 
     public void addStock(int productID, String size, int add) {
         String sql1 = "INSERT INTO dbo.storage(productID, size, num_left) VALUES(?,?,?)";

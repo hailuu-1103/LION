@@ -57,6 +57,9 @@
                         <p>SĐT: 024 3573 6650</p>
                         <p>Facebook: <a href="https://www.facebook.com/hood.red.397/">Click here</a></p>
                         <img class="w-100 p-3" src="image/contact1.jpg" alt="">
+                        <div class="form-group">
+                            <a href="chgpwd.jsp">Đổi mật khẩu</a>
+                        </div>
                     </div>
                     <form class="col-lg-4 m-2" action="account" onsubmit="return check()" method="post">
                         <h3>Thông tin tài khoản</h3>
@@ -67,10 +70,7 @@
                         <div class="form-group">
                             <input type="password" style="display: none;" class="form-control" id="oldpass" value="${sessionScope.account.password}">
                         </div>
-                        <div class="form-group">
-                            <label>Mật khẩu</label>
-                            <input type="password" class="form-control" name="pass">
-                        </div>
+                        
                         <div class="form-group">
                             <label>Họ và tên</label>
                             <input type="text" class="form-control" name="fullname" value="${requestScope.customer.fullname}">

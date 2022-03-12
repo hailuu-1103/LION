@@ -18,18 +18,14 @@ public class Cart {
     private int accountID;
     private List<Item> items; //  ds sản phẩm đưa vào giỏ
 
-    public Cart() {
-        
-    }
-
-    public Cart(int productID) {
-        this.productID = productID;
+    public Cart(int accountID) {
+        this.accountID = accountID;
     }
 
     public Cart(int productID, int accountID) {
-        items = new ArrayList<>();
         this.productID = productID;
         this.accountID = accountID;
+        items = new ArrayList<>();
     }
 
     public int getProductID() {
@@ -56,11 +52,7 @@ public class Cart {
         this.items = items;
     }
 
-   
-
-    
     // số lượng 1 sản phẩm trong giỏ - khách sẽ mua
-
     public int getItemQuantity(int id, String sex) {
         return getExactItem(id, sex).getQuantity();
     }
@@ -106,5 +98,5 @@ public class Cart {
     public String toString() {
         return productID + " " + accountID;
     }
-    
+
 }

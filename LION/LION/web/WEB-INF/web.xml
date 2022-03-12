@@ -28,10 +28,6 @@
         <servlet-class>controller.base.SearchServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>controller.LogoutServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>CRUDServlet</servlet-name>
         <servlet-class>controller.admin.ViewListProduct</servlet-class>
     </servlet>
@@ -69,7 +65,7 @@
     </servlet>
     <servlet>
         <servlet-name>ChartServlet</servlet-name>
-        <servlet-class>controller.ChartServlet</servlet-class>
+        <servlet-class>controller.base.ChartServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditCRUDServlet</servlet-name>
@@ -85,11 +81,15 @@
     </servlet>
     <servlet>
         <servlet-name>ConfirmServlet</servlet-name>
-        <servlet-class>controller.ConfirmServlet</servlet-class>
+        <servlet-class>controller.cart.ConfirmServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ManageOrderServlet</servlet-name>
-        <servlet-class>controller.ManageOrderServlet</servlet-class>
+        <servlet-class>controller.admin.ManageOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangPasswordServlet</servlet-name>
+        <servlet-class>controller.base.ChangPasswordServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -114,10 +114,6 @@
     <servlet-mapping>
         <servlet-name>SearchServlet</servlet-name>
         <url-pattern>/search</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CRUDServlet</servlet-name>
@@ -178,6 +174,10 @@
     <servlet-mapping>
         <servlet-name>ManageOrderServlet</servlet-name>
         <url-pattern>/morder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangPasswordServlet</servlet-name>
+        <url-pattern>/chgpwd</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

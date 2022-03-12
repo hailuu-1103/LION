@@ -7,7 +7,6 @@ package controller.cart;
 
 import dal.CartDAO;
 import dal.CustomerDAO;
-import dal.DogDAO;
 import dal.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,7 +21,6 @@ import model.Account;
 import model.Cart;
 import model.Customer;
 import model.Item;
-import model.Dog;
 import model.Order;
 
 /**
@@ -90,14 +88,11 @@ public class OrderDetailServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int oid = Integer.parseInt(request.getParameter("oid"));
-//        PrintWriter out = response.getWriter();
-//        out.print("This is Order ID: "+request.getParameter("o"));
         OrderDAO odb = new OrderDAO();
         List<Item> list = odb.getDetails(oid);
         Order o = odb.get(oid);
         CustomerDAO cdb = new CustomerDAO();
         Customer c = cdb.findByAccountID(o.getAccount().getAccountID());
-//        out.print(c);
 
         request.setAttribute("customer", c);
         request.setAttribute("order", o);

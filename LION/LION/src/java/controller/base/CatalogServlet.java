@@ -5,7 +5,6 @@
  */
 package controller.base;
 
-import dal.DogDAO;
 import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,7 +13,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dog;
 import model.Product;
 
 /**
@@ -66,14 +64,11 @@ public class CatalogServlet extends HttpServlet {
 //        HttpSession session = request.getSession();
         int categoryID = Integer.valueOf(request.getParameter("categoryID"));
         ProductDAO productDAO = new ProductDAO();
-        
-
         List<Product> list = productDAO.getProductByCategory(categoryID);
-
         List<String> type = productDAO.getSize(categoryID);
-        int size = list.size();
-        int numperPage = 10;
-        int numPage = size / numperPage + (size % numperPage == 0 ? 0 : 1);
+        int size = list.size(); // tổng số sản phẩm
+        int numperPage = 10; // số lượng sản phẩm trên trang
+        int numPage = size / numperPage + (size % numperPage == 0 ? 0 : 1); // số trang cần 
         String spage = request.getParameter("page");
         int page;
         if (spage == null) {

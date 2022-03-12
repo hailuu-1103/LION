@@ -79,7 +79,7 @@
                             <tbody>
                                 <c:forEach items="${requestScope.list}" var="item">
                                     <tr>
-                                        <td class="text-center"><img class="img-responsive" src="${item.product.image}" /> </td>
+                                        <td class="text-center"><img class="img-responsive" src="<%=request.getContextPath()%>/images/${item.product.image}" /> </td>
                                         <td>${item.product.productName}</td>
                                         <td style="text-align: center">${item.size}</td>
                                         <td style="text-align: center">${item.quantity}</td>
@@ -113,15 +113,10 @@
                                 </tr>
                             </tbody>
                         </table>
-
-                                
-                                    
                     </div>
                 </div>
             </div>
         </div>
-
-
         <%@include file="footer_header/footer.jsp" %>
 
     </body>

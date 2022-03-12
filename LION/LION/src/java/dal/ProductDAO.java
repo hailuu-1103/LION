@@ -13,7 +13,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
-import model.Dog;
 import model.Product;
 
 /**
@@ -136,9 +135,9 @@ public class ProductDAO extends DBContext implements IDAO<Product> {
         }
     }
 
-    public List<Product> getCheap() {
+    public List<Product> getCheap(int categoryID) {
         List<Product> cheap = new ArrayList<>();
-        String sql = "SELECT TOP 4 * FROM product WHERE productID IN (SELECT DISTINCT productID FROM dbo.storage) ORDER BY price ASC";
+        String sql = "SELECT TOP 4 * FROM product WHERE productID IN (SELECT DISTINCT productID FROM dbo.storage) AND categoryID = " + categoryID + " ORDER BY price ASC";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();

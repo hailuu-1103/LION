@@ -5,7 +5,6 @@
  */
 package controller.base;
 
-import dal.DogDAO;
 import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Dog;
 import model.Product;
 
 /**
@@ -65,10 +63,14 @@ public class Home extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         ProductDAO productDAO = new ProductDAO();
-        List<Product> cheap = productDAO.getCheap();
+        List<Product> cheapShirt = productDAO.getCheap(1);
+        List<Product> cheapShoes = productDAO.getCheap(2);
+        List<Product> cheapJewelry = productDAO.getCheap(3);
 //        List<Dog> latest = productDAO.getLatest();
         
-        request.setAttribute("cheap", cheap);
+        request.setAttribute("cheap1", cheapShirt);
+        request.setAttribute("cheap2", cheapShoes);
+        request.setAttribute("cheap3", cheapJewelry);
 //        request.setAttribute("latest", latest);
         
         request.getRequestDispatcher("home.jsp").forward(request, response);

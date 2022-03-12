@@ -7,7 +7,6 @@ package controller.base;
 
 import dal.AccountDAO;
 import dal.CustomerDAO;
-import dal.DogDAO;
 import dal.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
 import model.Customer;
-import model.Dog;
 
 /**
  *
@@ -70,23 +68,9 @@ public class AccountServlet extends HttpServlet {
         HttpSession session = request.getSession();
         PrintWriter out = response.getWriter();
         CustomerDAO customerDAO = new CustomerDAO();
-//        OrderDAO odb = new OrderDAO();
-
         Account acc = (Account) session.getAttribute("account");
         Customer cus = new CustomerDAO().findByAccountID(acc.getAccountID());
-////        int orderNum = odb.getOrderNum(acc.getUsername());
-////        if (orderNum > 0) {
-////            Map<String, Integer> most = odb.getMostBuy(acc.getUsername());
-////            String most_id = (String) most.keySet().toArray()[0];
-////            Integer most_num = (Integer) most.values().toArray()[0];
-////            DogDAO kdb = new DogDAO();
-////            Dog most_buy = kdb.getDogByID(most_id);
-////            request.setAttribute("most_buy", most_buy);
-////            request.setAttribute("most_num", most_num);
-////        }
         request.setAttribute("customer", cus);
-//////        request.setAttribute("orderNum", orderNum);
-////
         request.getRequestDispatcher("account.jsp").forward(request, response);
     }
 
@@ -104,8 +88,8 @@ public class AccountServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
-        CustomerDAO cdb = new CustomerDAO();
-        AccountDAO adb = new AccountDAO();
+        CustomerDAO customerDAO = new CustomerDAO();
+        AccountDAO accountDAO = new AccountDAO();
         PrintWriter out = response.getWriter();
         Account acc = (Account) session.getAttribute("account");
         String username = request.getParameter("username");
@@ -116,9 +100,9 @@ public class AccountServlet extends HttpServlet {
         String address = request.getParameter("address");
         Customer customer = new Customer(acc, address, phone, fullname);
         Account account = new Account(username, newpass, "user", email);
-        cdb.update(customer);
-        adb.update(account);
-        response.sendRedirect("account");
+        customerDAO.update(customer); // UPDATE CUSTOMER trong database
+        accountDAO.update(account); // UPDATE ACCOUNT trong database
+        response.sendRedirect("login");
     }
 
     /**

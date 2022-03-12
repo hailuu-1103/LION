@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 import model.Account;
 import model.Cart;
-import model.Dog;
 import model.Item;
 import model.Order;
 import model.Product;
@@ -129,31 +128,31 @@ public class OrderDAO extends DBContext implements IDAO<Order>{
     }
 
 
-    public List<Order> getAllOrder(String username) {
+    public List<Order> getAllOrder(int accountID) {
         List<Order> list = new ArrayList<>();
-//        String sql = "SELECT * FROM dbo.orders ";
-//        if (username != "") {
-//            sql = sql.concat(" WHERE username = '" + username + "' ");
-//        }
-//        sql = sql.concat(" ORDER BY orderID DESC");
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            ResultSet rs = st.executeQuery();
-//            while (rs.next()) {
-//                Order o = new Order();
-//                o.setOid(rs.getInt(1));
-//                o.setOdate(rs.getString(2));
-//                o.setSdate(rs.getString(3));
-//                o.setUsername(username);
-//                o.setPayment(rs.getFloat(5));
-//                o.setShipping(rs.getFloat(6));
-//                o.setTotal(rs.getFloat(7));
-//                o.setStatus(rs.getString(8));
-//                list.add(o);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println("lay tat ca don hang");
-//        }
+        String sql = "SELECT orderID, orderDate, shipDate, accountID, payment, shipping, total, status FROM orders ";
+        if (accountID != 0) {
+            sql = sql.concat(" WHERE accountID = " + accountID + " ");
+        }
+        sql = sql.concat(" ORDER BY orderID DESC");
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Order o = new Order();
+                o.setOid(rs.getInt(1));
+                o.setOdate(rs.getString(2));
+                o.setSdate(rs.getString(3));
+                o.setAccount(new AccountDAO().get(accountID));
+                o.setPayment(rs.getFloat(5));
+                o.setShipping(rs.getFloat(6));
+                o.setTotal(rs.getFloat(7));
+                o.setStatus(rs.getString(8));
+                list.add(o);
+            }
+        } catch (SQLException ex) {
+            System.out.println("lay tat ca don hang");
+        }
         return list;
     }
 
@@ -166,9 +165,8 @@ public class OrderDAO extends DBContext implements IDAO<Order>{
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Item i = new Item();
-                DogDAO kdb = new DogDAO();
-//                i.setDog(kdb.getDogByID(rs.getString(2)));
-                i.setSize(rs.getString(3));
+                i.setProduct(new ProductDAO().get(rs.getInt(2)));
+                i.setSize(new ProductDAO().getSize(rs.getInt(2)).get(0));
                 i.setQuantity(rs.getInt(5));
                 i.setPrice(rs.getFloat(4));
                 list.add(i);

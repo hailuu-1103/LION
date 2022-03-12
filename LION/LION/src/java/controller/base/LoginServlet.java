@@ -87,10 +87,6 @@ public class LoginServlet extends HttpServlet {
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("account", a);
-            session.setMaxInactiveInterval(100);
-//            CartDAO cdb = new CartDAO();
-//            Cart cart = cdb.getCart(username);
-//            session.setAttribute("cart", cart);
             response.sendRedirect("home");
         }
     }
