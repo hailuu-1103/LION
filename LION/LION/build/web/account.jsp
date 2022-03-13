@@ -55,7 +55,7 @@
                         <h3>Thông tin liên hệ</h3>
                         <p>Địa chỉ: Số 7 Thiền Quang, Nguyễn Du, Hai Bà Trưng, Hà Nội</p>
                         <p>SĐT: 024 3573 6650</p>
-                        <p>Facebook: <a href="https://www.facebook.com/hood.red.397/">Click here</a></p>
+                        <p>Facebook: <a href="https://www.facebook.com/">Click here</a></p>
                         <img class="w-100 p-3" src="image/contact1.jpg" alt="">
                         <div class="form-group">
                             <a href="chgpwd.jsp">Đổi mật khẩu</a>
